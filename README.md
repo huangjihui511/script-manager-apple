@@ -11,19 +11,54 @@ An application to manage your chaos shell commands
 2. Editable
 
 3. Clever
+## Technology
 
+Native Mac OS Application
 ## Design
+### DataModel
+Store the persist data
+#### Fields
+1. script
 
-1. DataModel
+2. group_name
 
-    Store the persist data
+3. is_favorite
 
-2. ViewModel
+4. usage_count
 
-    UI
+5. created_at
 
-3. SystemModel
+6. last_used_at
 
-    Clipboard
+#### Operation
+1. add
 
-    Shortcut
+2. update
+
+3. delete
+
+### ViewModel
+
+The user interface
+
+#### Page
+
+1. Grouping
+
+2. Favorite
+
+3. Recent
+#### Filter
+
+1. is favorite
+
+2. in 10 days
+
+### SystemModel
+
+#### Clipboard
+1. write to clipboard
+
+2. listen at clipboard
+
+#### Notification
