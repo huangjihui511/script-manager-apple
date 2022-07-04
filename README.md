@@ -30,6 +30,8 @@ Store the persist data
 
 6. last_used_at
 
+7. scene
+
 #### Operation
 1. add
 
