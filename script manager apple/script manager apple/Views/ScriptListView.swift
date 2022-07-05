@@ -8,13 +8,23 @@
 import SwiftUI
 
 struct ScriptListView: View {
+    @EnvironmentObject var modelData: ModelData
+    
+    var scripts:[script] {
+        modelData.scriptsMap.flatMap { (key: String, value: [script]) in
+            value
+        }
+    }
+
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+       List(scripts) { script in
+           Text(script.id)
+       }
     }
 }
 
 struct ScriptListView_Previews: PreviewProvider {
     static var previews: some View {
-        ScriptListView()
+        ScriptListView().environmentObject(ModelData())
     }
 }

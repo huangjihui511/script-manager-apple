@@ -6,3 +6,13 @@
 //
 
 import Foundation
+
+struct script: Hashable, Codable, Identifiable {
+    var id: String{
+        script
+    }
+    var script: String
+    var createdAt: Int64
+    var lastUsedAt: Int64
+    var isFavorite: Bool
+}
