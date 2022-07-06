@@ -19,7 +19,7 @@ struct ScriptDetailsView: View {
     var body: some View {
         HStack {
             VStack(alignment: .leading) {
-                Text("Raw script text:")
+                Text("Raw Script Text:")
                     .font(.headline)
                     .padding(/*@START_MENU_TOKEN@*/[.top, .bottom, .trailing]/*@END_MENU_TOKEN@*/)
                 TextEditor(text: $modelData.scripts[modelData.getScriptIndex(scriptId: script.id)!].script)
@@ -38,7 +38,7 @@ struct ScriptDetailsView: View {
                         afterEdit()
                     }
                 Divider()
-                Text("More detail...")
+                Text("About:")
                     .font(.headline)
                     .padding(.vertical)
                     
