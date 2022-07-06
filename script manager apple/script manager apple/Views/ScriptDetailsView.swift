@@ -12,18 +12,39 @@ struct ScriptDetailsView: View {
     @Binding var isEdit: Bool
     @EnvironmentObject var modelData: ModelData
     
-    var scriptIndex: Int {
-        modelData.scripts.firstIndex(where: { $0.id == script.id })!
+    func afterEdit() {
+        modelData.scripts[modelData.getScriptIndex(scriptId: script.id)!].updateAt = Date().timeIntervalSince1970
     }
     
     var body: some View {
         HStack {
             VStack(alignment: .leading) {
-                ScriptDetailView(name: "id", value: $modelData.scripts[scriptIndex].id, isEdit: $isEdit, canEdit: false)
-                ScriptDetailView(name: "raw script text", value: $modelData.scripts[scriptIndex].script, isEdit: $isEdit, canEdit: true)
-                //                ScriptDetailView(name: "is favorite", value: .constant(String(script.isFavorite)), isEdit: $isEdit, canEdit: false)
-                ScriptDetailView(name: "updated time", value: .constant( timeIntervalChangeToTimeStr(timeInterval: script.updateAt, dateFormat: nil)),isEdit: $isEdit, canEdit: false)
-                ScriptDetailView(name: "last used time", value: .constant( timeIntervalChangeToTimeStr(timeInterval: script.lastUsedAt, dateFormat: nil)),isEdit: $isEdit, canEdit: false)
+                Text("Raw script text:")
+                    .font(.headline)
+                    .padding(/*@START_MENU_TOKEN@*/[.top, .bottom, .trailing]/*@END_MENU_TOKEN@*/)
+                TextEditor(text: $modelData.scripts[modelData.getScriptIndex(scriptId: script.id)!].script)
+                    .font(.body)
+                    .onSubmit {
+                        afterEdit()
+                    }
+                    .frame(height: 50, alignment: .leading)
+                Divider()
+                Text("Settings:")
+                    .font(.headline)
+                    .padding([.top, .bottom, .trailing])
+                Toggle("Is favorite", isOn: $modelData.scripts[modelData.getScriptIndex(scriptId: script.id)!].isFavorite)
+                    .toggleStyle(.switch)
+                    .onSubmit {
+                        afterEdit()
+                    }
+                Divider()
+                Text("More detail...")
+                    .font(.headline)
+                    .padding(.vertical)
+                    
+                ScriptDetailView(name: "Created Time (id)", value: modelData.scripts[modelData.getScriptIndex(scriptId: script.id)!].id)
+                ScriptDetailView(name: "Updated Time", value:  timeIntervalChangeToTimeStr(timeInterval: script.updateAt, dateFormat: nil))
+                ScriptDetailView(name: "Used Time", value:  timeIntervalChangeToTimeStr(timeInterval: script.lastUsedAt, dateFormat: nil))
             }
             .padding(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
             

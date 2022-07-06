@@ -16,6 +16,7 @@ struct ScriptListView: View {
             }
             return s.isFavorite
         }
+        .reversed()
     }
     @State var showFavoritesOnly: Bool = false
     @State var copiedId: String = ""
@@ -36,7 +37,7 @@ struct ScriptListView: View {
                     }
                     .onAppear {
                         writeToClipboard(string: script.script)
-                        let index = modelData.scripts.firstIndex(where: { $0.id == copiedId })
+                        let index = modelData.getScriptIndex(scriptId: copiedId)
                         if index != nil {
                             modelData.scripts[index!].lastUsedAt = Date().timeIntervalSince1970
                         }
@@ -67,28 +68,10 @@ struct ScriptListView: View {
                         Label("filter", systemImage: "camera.filters")
                     }
                     Button {
-                        if copiedId.lengthOfBytes(using: .ascii) == 0 {
-                            return
-                        }
-                        isEdit = !isEdit
-                        let cachCopiedId = copiedId
-                        let index = ModelData().getScriptIndex(scriptId: copiedId)
-                        modelData.scripts[index!].updateAt = Date().timeIntervalSince1970
-                        copiedId = ""
-                        copiedId = cachCopiedId
-                        
+                        let newId = timeIntervalChangeToTimeStr(timeInterval: Date().timeIntervalSince1970, dateFormat: nil)
+                        modelData.scripts.append(Script(id: newId, script: "[NEW] echo hello-world", updateAt: Date().timeIntervalSince1970, lastUsedAt: Date().timeIntervalSince1970, isFavorite: false))
                     } label: {
-                        if !isEdit {
-                            Label("edit", systemImage: "pencil.slash")
-                        } else {
-                            Label("edit", systemImage: "arrow.clockwise.icloud")
-                        }
-                    }
-                    Button {
-                        modelData.scripts.append(Script(id: "0", script: "echo hello-world", updateAt: Date().timeIntervalSince1970, lastUsedAt: Date().timeIntervalSince1970, isFavorite: false))
-                        copiedId = "0"
-                    } label: {
-                        Label("add", systemImage: "plus")
+                        Label("add", systemImage: "plus.square.on.square")
                     }
                     Spacer()
                 }
