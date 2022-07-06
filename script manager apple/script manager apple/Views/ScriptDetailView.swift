@@ -1,5 +1,5 @@
 //
-//  ScriptDetailView.swift
+//  ScriptDetailsView.swift
 //  script manager apple
 //
 //  Created by 黄继辉 on 2022/7/5.
@@ -8,45 +8,78 @@
 import SwiftUI
 
 struct ScriptDetailView: View {
-    var name: String
-    var value: String
+    var script: Script
+    @Binding var isEdit: Bool
+    @EnvironmentObject var modelData: ModelData
+    
+    func afterEdit() {
+        modelData.scripts[modelData.getScriptIndex(scriptId: script.id)!].updateAt = Date().timeIntervalSince1970
+    }
     
     var body: some View {
-        
-        HStack(alignment: .center){
-            HStack() {
-                Text(name)
-                    .font(.body)
-                Spacer()
-            }
-            .frame(width: 130,alignment: .leading)
+        ScrollView {
             HStack {
-                Text(":")
-                    .font(.body)
-                    .foregroundColor(Color.gray)
+                VStack(alignment: .leading) {
+                    VStack(alignment: .leading) {
+                        Text("Raw Script Text:")
+                            .font(.headline)
+                            .padding(/*@START_MENU_TOKEN@*/[.top, .trailing]/*@END_MENU_TOKEN@*/)
+                        TextEditor(text: $modelData.scripts[modelData.getScriptIndex(scriptId: script.id)!].script)
+                            .font(.body)
+                            .onSubmit {
+                                afterEdit()
+                            }
+                            .frame(height: 50, alignment: .leading)
+                            .padding(.vertical)
 
-                Text(value)
-                    .font(.body)
-                    .foregroundColor(Color.gray)
+                        Divider()
+                        Text("Settings:")
+                            .font(.headline)
+                            .padding([.top, .trailing])
+                        Toggle("Is favorite", isOn: $modelData.scripts[modelData.getScriptIndex(scriptId: script.id)!].isFavorite)
+                            .toggleStyle(.switch)
+                            .onSubmit {
+                                afterEdit()
+                            }
+                            .padding([.top, .bottom, .trailing])
+
+                        Divider()
+                    }
+                    VStack(alignment: .leading){
+                        Text("About:")
+                            .font(.headline)
+                            .padding([.top, .bottom, .trailing])
+                        Text("Created Time (id)")
+                        Text(script.id)
+                            .font(.subheadline)
+                            .foregroundColor(Color.gray)
+                            .padding(.vertical)
+                        Text("Updated Time")
+                        Text(timeIntervalChangeToTimeStr(timeInterval: script.updateAt, dateFormat: nil))
+                            .font(.subheadline)
+                            .foregroundColor(Color.gray)
+                            .padding(.vertical)
+                        Text("Used Time")
+                        Text(timeIntervalChangeToTimeStr(timeInterval: script.lastUsedAt, dateFormat: nil))
+                            .font(.subheadline)
+                            .foregroundColor(Color.gray)
+                            .padding(.vertical)
+                    }
+                }
+                .padding(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
                 
                 Spacer()
             }
-            .frame(minWidth: 150, alignment: .leading)
-            
         }
-        .padding(.vertical)
         
     }
 }
-//
-//struct ScriptDetailView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        Group {
-//            ScriptDetailView(name: "name", value: .constant("value"), isEdit: .constant(true), canEdit: true)
-//                .frame(width: 400.0)
-//            ScriptDetailView(name: "name", value: .constant("value"), isEdit: .constant(true), canEdit: true)
-//                .frame(width: 300.0)
-//        }
-//
-//    }
-//}
+
+struct ScriptDetailView_Previews: PreviewProvider {
+    static var scripts = ModelData().scripts
+    
+    static var previews: some View {
+        ScriptDetailView(script: scripts[2], isEdit: .constant(false))
+            .environmentObject(ModelData())
+    }
+}

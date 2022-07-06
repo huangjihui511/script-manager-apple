@@ -11,10 +11,7 @@ struct ScriptListView: View {
     
     var scriptsSelected: [Script]  {
         modelData.scripts.filter { s in
-            if showFavoritesOnly == false {
-                return true
-            }
-            return s.isFavorite
+            s.isFavorite
         }
         .reversed()
     }
@@ -28,22 +25,17 @@ struct ScriptListView: View {
         NavigationView {
             List(scriptsSelected) { script in
                 NavigationLink {
-                    HStack {
-                        VStack(alignment: .leading) {
-                            ScriptDetailsView(script: script, isEdit: $isEdit)
-                            Spacer()
+                    ScriptDetailView(script: script, isEdit: $isEdit)
+                        .frame(minWidth: 300, idealWidth: 300, alignment: .leading)
+                        .onAppear {
+                            writeToClipboard(string: script.script)
+                            let index = modelData.getScriptIndex(scriptId: copiedId)
+                            if index != nil {
+                                modelData.scripts[index!].lastUsedAt = Date().timeIntervalSince1970
+                            }
+                            copiedId = script.id
+                            isEdit = false
                         }
-                        Spacer()
-                    }
-                    .onAppear {
-                        writeToClipboard(string: script.script)
-                        let index = modelData.getScriptIndex(scriptId: copiedId)
-                        if index != nil {
-                            modelData.scripts[index!].lastUsedAt = Date().timeIntervalSince1970
-                        }
-                        copiedId = script.id
-                        isEdit = false
-                    }
                 } label  : {
                     VStack(alignment: .trailing) {
                         ScriptRowView(script: script)
@@ -76,7 +68,7 @@ struct ScriptListView: View {
                     Spacer()
                 }
             }
-            .frame(minWidth: 250, alignment: .leading)
+            .frame(minWidth: 200, idealWidth: 200, alignment: .leading)
         }
         .navigationTitle("Details")
     }

@@ -10,7 +10,7 @@ import SwiftUI
 
 final class ModelData: ObservableObject {
     
-    var scripts:[Script] = loadScripts()
+    @Published var scripts:[Script] = loadScripts()
     
     func getScriptIndex(scriptId:String) -> Optional<Int> {
         return scripts.firstIndex(where: { $0.id == scriptId })

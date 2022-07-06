@@ -28,7 +28,6 @@ struct ScriptRowView: View {
             Spacer()
         }
         .padding(/*@START_MENU_TOKEN@*/.vertical/*@END_MENU_TOKEN@*/)
-        .frame(minWidth: 200, alignment: .leading)
     }
 }
 //

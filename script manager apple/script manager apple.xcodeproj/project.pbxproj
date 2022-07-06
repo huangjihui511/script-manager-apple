@@ -19,9 +19,8 @@
 		5E668FE12873CED800D5EE23 /* ModelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E668FE02873CED800D5EE23 /* ModelData.swift */; };
 		5E668FE52873D60F00D5EE23 /* ScriptListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E668FE42873D60F00D5EE23 /* ScriptListView.swift */; };
 		5E668FE72873DE6600D5EE23 /* ScriptRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E668FE62873DE6600D5EE23 /* ScriptRowView.swift */; };
-		5EF71E4128741A6B00FBA5C1 /* ScriptDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EF71E4028741A6B00FBA5C1 /* ScriptDetailsView.swift */; };
+		5EF71E4128741A6B00FBA5C1 /* ScriptDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EF71E4028741A6B00FBA5C1 /* ScriptDetailView.swift */; };
 		5EF71E4328742A0000FBA5C1 /* TransferUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EF71E4228742A0000FBA5C1 /* TransferUtils.swift */; };
-		5EF71E4528747E6C00FBA5C1 /* ScriptDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EF71E4428747E6C00FBA5C1 /* ScriptDetailView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,9 +47,8 @@
 		5E668FE02873CED800D5EE23 /* ModelData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelData.swift; sourceTree = "<group>"; };
 		5E668FE42873D60F00D5EE23 /* ScriptListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScriptListView.swift; sourceTree = "<group>"; };
 		5E668FE62873DE6600D5EE23 /* ScriptRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScriptRowView.swift; sourceTree = "<group>"; };
-		5EF71E4028741A6B00FBA5C1 /* ScriptDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScriptDetailsView.swift; sourceTree = "<group>"; };
+		5EF71E4028741A6B00FBA5C1 /* ScriptDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScriptDetailView.swift; sourceTree = "<group>"; };
 		5EF71E4228742A0000FBA5C1 /* TransferUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferUtils.swift; sourceTree = "<group>"; };
-		5EF71E4428747E6C00FBA5C1 /* ScriptDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScriptDetailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,9 +131,8 @@
 			children = (
 				5E668FE42873D60F00D5EE23 /* ScriptListView.swift */,
 				5E668FE62873DE6600D5EE23 /* ScriptRowView.swift */,
-				5EF71E4028741A6B00FBA5C1 /* ScriptDetailsView.swift */,
+				5EF71E4028741A6B00FBA5C1 /* ScriptDetailView.swift */,
 				5EF71E4228742A0000FBA5C1 /* TransferUtils.swift */,
-				5EF71E4428747E6C00FBA5C1 /* ScriptDetailView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -259,13 +256,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5EF71E4128741A6B00FBA5C1 /* ScriptDetailsView.swift in Sources */,
+				5EF71E4128741A6B00FBA5C1 /* ScriptDetailView.swift in Sources */,
 				5E668FE12873CED800D5EE23 /* ModelData.swift in Sources */,
 				5E332328287548DE00197659 /* ClipBoard.swift in Sources */,
 				5E332326287548DE00197659 /* Notification.swift in Sources */,
 				5EF71E4328742A0000FBA5C1 /* TransferUtils.swift in Sources */,
 				5E668FE72873DE6600D5EE23 /* ScriptRowView.swift in Sources */,
-				5EF71E4528747E6C00FBA5C1 /* ScriptDetailView.swift in Sources */,
 				5E668FE52873D60F00D5EE23 /* ScriptListView.swift in Sources */,
 				5E668FDF2873CEC300D5EE23 /* Script.swift in Sources */,
 				5E668FCF2873CDA100D5EE23 /* ScriptManagerApp.swift in Sources */,
