@@ -40,4 +40,8 @@ class script_manager_appleTests: XCTestCase {
     func testNotification() throws {
         sendNotification(string: "123")
     }
+    
+//    func testAddScript() throws {
+//        let s = ModelData().addScript(script: "aaa")
+//    }
 }

@@ -8,9 +8,24 @@
 import Foundation
 import SwiftUI
 
-final class ModelData: ObservableObject {
+final  class ModelData: ObservableObject {
     
     @Published var scripts:[Script] = loadScripts()
+    
+    func addScript(script:String) -> Script {
+        let newId = timeIntervalChangeToTimeStr(timeInterval: Date().timeIntervalSince1970, dateFormat: nil)
+        let newScript = Script(id: newId, script:script, updateAt: Date().timeIntervalSince1970, lastUsedAt: Date().timeIntervalSince1970, isFavorite: false)
+        
+        self.scripts.append(newScript)
+        self.objectWillChange.send()
+        return newScript
+    }
+    
+    func deleteScript(id: String) {
+        let index  = getScriptIndex(scriptId: id)!
+        scripts.remove(at: index)
+        self.objectWillChange.send()
+    }
     
     func getScriptIndex(scriptId:String) -> Optional<Int> {
         return scripts.firstIndex(where: { $0.id == scriptId })
