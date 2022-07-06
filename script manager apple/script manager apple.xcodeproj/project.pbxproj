@@ -7,28 +7,60 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5E668FCF2873CDA100D5EE23 /* script_manager_appleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E668FCE2873CDA100D5EE23 /* script_manager_appleApp.swift */; };
-		5E668FD12873CDA100D5EE23 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E668FD02873CDA100D5EE23 /* ContentView.swift */; };
+		5E3323152874A48C00197659 /* script_manager_appleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E3323142874A48C00197659 /* script_manager_appleTests.swift */; };
+		5E332326287548DE00197659 /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E332324287548DE00197659 /* Notification.swift */; };
+		5E332327287548DE00197659 /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E332324287548DE00197659 /* Notification.swift */; };
+		5E332328287548DE00197659 /* ClipBoard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E332325287548DE00197659 /* ClipBoard.swift */; };
+		5E332329287548DE00197659 /* ClipBoard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E332325287548DE00197659 /* ClipBoard.swift */; };
+		5E668FCF2873CDA100D5EE23 /* ScriptManagerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E668FCE2873CDA100D5EE23 /* ScriptManagerApp.swift */; };
 		5E668FD32873CDA400D5EE23 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5E668FD22873CDA400D5EE23 /* Assets.xcassets */; };
 		5E668FD62873CDA400D5EE23 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5E668FD52873CDA400D5EE23 /* Preview Assets.xcassets */; };
 		5E668FDF2873CEC300D5EE23 /* Script.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E668FDE2873CEC300D5EE23 /* Script.swift */; };
 		5E668FE12873CED800D5EE23 /* ModelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E668FE02873CED800D5EE23 /* ModelData.swift */; };
 		5E668FE52873D60F00D5EE23 /* ScriptListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E668FE42873D60F00D5EE23 /* ScriptListView.swift */; };
+		5E668FE72873DE6600D5EE23 /* ScriptRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E668FE62873DE6600D5EE23 /* ScriptRowView.swift */; };
+		5EF71E4128741A6B00FBA5C1 /* ScriptDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EF71E4028741A6B00FBA5C1 /* ScriptDetailsView.swift */; };
+		5EF71E4328742A0000FBA5C1 /* TransferUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EF71E4228742A0000FBA5C1 /* TransferUtils.swift */; };
+		5EF71E4528747E6C00FBA5C1 /* ScriptDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EF71E4428747E6C00FBA5C1 /* ScriptDetailView.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		5E3323162874A48C00197659 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5E668FC32873CDA100D5EE23 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5E668FCA2873CDA100D5EE23;
+			remoteInfo = "script manager apple";
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
+		5E3323122874A48C00197659 /* script manager appleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "script manager appleTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		5E3323142874A48C00197659 /* script_manager_appleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = script_manager_appleTests.swift; sourceTree = "<group>"; };
+		5E332324287548DE00197659 /* Notification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
+		5E332325287548DE00197659 /* ClipBoard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClipBoard.swift; sourceTree = "<group>"; };
 		5E668FCB2873CDA100D5EE23 /* script manager apple.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "script manager apple.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		5E668FCE2873CDA100D5EE23 /* script_manager_appleApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = script_manager_appleApp.swift; sourceTree = "<group>"; };
-		5E668FD02873CDA100D5EE23 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		5E668FCE2873CDA100D5EE23 /* ScriptManagerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScriptManagerApp.swift; sourceTree = "<group>"; };
 		5E668FD22873CDA400D5EE23 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5E668FD52873CDA400D5EE23 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		5E668FD72873CDA400D5EE23 /* script_manager_apple.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = script_manager_apple.entitlements; sourceTree = "<group>"; };
 		5E668FDE2873CEC300D5EE23 /* Script.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Script.swift; sourceTree = "<group>"; };
 		5E668FE02873CED800D5EE23 /* ModelData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelData.swift; sourceTree = "<group>"; };
 		5E668FE42873D60F00D5EE23 /* ScriptListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScriptListView.swift; sourceTree = "<group>"; };
+		5E668FE62873DE6600D5EE23 /* ScriptRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScriptRowView.swift; sourceTree = "<group>"; };
+		5EF71E4028741A6B00FBA5C1 /* ScriptDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScriptDetailsView.swift; sourceTree = "<group>"; };
+		5EF71E4228742A0000FBA5C1 /* TransferUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferUtils.swift; sourceTree = "<group>"; };
+		5EF71E4428747E6C00FBA5C1 /* ScriptDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScriptDetailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		5E33230F2874A48C00197659 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		5E668FC82873CDA100D5EE23 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -39,10 +71,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5E3323132874A48C00197659 /* script manager appleTests */ = {
+			isa = PBXGroup;
+			children = (
+				5E3323142874A48C00197659 /* script_manager_appleTests.swift */,
+			);
+			path = "script manager appleTests";
+			sourceTree = "<group>";
+		};
 		5E668FC22873CDA100D5EE23 = {
 			isa = PBXGroup;
 			children = (
 				5E668FCD2873CDA100D5EE23 /* script manager apple */,
+				5E3323132874A48C00197659 /* script manager appleTests */,
 				5E668FCC2873CDA100D5EE23 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -51,6 +92,7 @@
 			isa = PBXGroup;
 			children = (
 				5E668FCB2873CDA100D5EE23 /* script manager apple.app */,
+				5E3323122874A48C00197659 /* script manager appleTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -58,9 +100,10 @@
 		5E668FCD2873CDA100D5EE23 /* script manager apple */ = {
 			isa = PBXGroup;
 			children = (
+				5E668FE82873E6D100D5EE23 /* System */,
 				5E668FE32873D42800D5EE23 /* Views */,
 				5E668FDD2873CE7B00D5EE23 /* Model */,
-				5E668FCE2873CDA100D5EE23 /* script_manager_appleApp.swift */,
+				5E668FCE2873CDA100D5EE23 /* ScriptManagerApp.swift */,
 				5E668FD22873CDA400D5EE23 /* Assets.xcassets */,
 				5E668FD72873CDA400D5EE23 /* script_manager_apple.entitlements */,
 				5E668FD42873CDA400D5EE23 /* Preview Content */,
@@ -88,15 +131,45 @@
 		5E668FE32873D42800D5EE23 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				5E668FD02873CDA100D5EE23 /* ContentView.swift */,
 				5E668FE42873D60F00D5EE23 /* ScriptListView.swift */,
+				5E668FE62873DE6600D5EE23 /* ScriptRowView.swift */,
+				5EF71E4028741A6B00FBA5C1 /* ScriptDetailsView.swift */,
+				5EF71E4228742A0000FBA5C1 /* TransferUtils.swift */,
+				5EF71E4428747E6C00FBA5C1 /* ScriptDetailView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		5E668FE82873E6D100D5EE23 /* System */ = {
+			isa = PBXGroup;
+			children = (
+				5E332325287548DE00197659 /* ClipBoard.swift */,
+				5E332324287548DE00197659 /* Notification.swift */,
+			);
+			path = System;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		5E3323112874A48C00197659 /* script manager appleTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5E3323182874A48C00197659 /* Build configuration list for PBXNativeTarget "script manager appleTests" */;
+			buildPhases = (
+				5E33230E2874A48C00197659 /* Sources */,
+				5E33230F2874A48C00197659 /* Frameworks */,
+				5E3323102874A48C00197659 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5E3323172874A48C00197659 /* PBXTargetDependency */,
+			);
+			name = "script manager appleTests";
+			productName = "script manager appleTests";
+			productReference = 5E3323122874A48C00197659 /* script manager appleTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		5E668FCA2873CDA100D5EE23 /* script manager apple */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5E668FDA2873CDA400D5EE23 /* Build configuration list for PBXNativeTarget "script manager apple" */;
@@ -124,6 +197,10 @@
 				LastSwiftUpdateCheck = 1340;
 				LastUpgradeCheck = 1340;
 				TargetAttributes = {
+					5E3323112874A48C00197659 = {
+						CreatedOnToolsVersion = 13.4.1;
+						TestTargetID = 5E668FCA2873CDA100D5EE23;
+					};
 					5E668FCA2873CDA100D5EE23 = {
 						CreatedOnToolsVersion = 13.4.1;
 					};
@@ -143,11 +220,19 @@
 			projectRoot = "";
 			targets = (
 				5E668FCA2873CDA100D5EE23 /* script manager apple */,
+				5E3323112874A48C00197659 /* script manager appleTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		5E3323102874A48C00197659 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		5E668FC92873CDA100D5EE23 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -160,21 +245,84 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		5E33230E2874A48C00197659 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5E332327287548DE00197659 /* Notification.swift in Sources */,
+				5E3323152874A48C00197659 /* script_manager_appleTests.swift in Sources */,
+				5E332329287548DE00197659 /* ClipBoard.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		5E668FC72873CDA100D5EE23 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5E668FD12873CDA100D5EE23 /* ContentView.swift in Sources */,
+				5EF71E4128741A6B00FBA5C1 /* ScriptDetailsView.swift in Sources */,
 				5E668FE12873CED800D5EE23 /* ModelData.swift in Sources */,
+				5E332328287548DE00197659 /* ClipBoard.swift in Sources */,
+				5E332326287548DE00197659 /* Notification.swift in Sources */,
+				5EF71E4328742A0000FBA5C1 /* TransferUtils.swift in Sources */,
+				5E668FE72873DE6600D5EE23 /* ScriptRowView.swift in Sources */,
+				5EF71E4528747E6C00FBA5C1 /* ScriptDetailView.swift in Sources */,
 				5E668FE52873D60F00D5EE23 /* ScriptListView.swift in Sources */,
 				5E668FDF2873CEC300D5EE23 /* Script.swift in Sources */,
-				5E668FCF2873CDA100D5EE23 /* script_manager_appleApp.swift in Sources */,
+				5E668FCF2873CDA100D5EE23 /* ScriptManagerApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		5E3323172874A48C00197659 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5E668FCA2873CDA100D5EE23 /* script manager apple */;
+			targetProxy = 5E3323162874A48C00197659 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
+		5E3323192874A48C00197659 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-all_load",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "jihui.individual.script-manager-appleTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/script manager apple.app/Contents/MacOS/script manager apple";
+			};
+			name = Debug;
+		};
+		5E33231A2874A48C00197659 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-all_load",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "jihui.individual.script-manager-appleTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/script manager apple.app/Contents/MacOS/script manager apple";
+			};
+			name = Release;
+		};
 		5E668FD82873CDA400D5EE23 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -306,6 +454,10 @@
 					"@executable_path/../Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-all_load",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "jihui.individual.script-manager-apple";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -331,6 +483,10 @@
 					"@executable_path/../Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-all_load",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "jihui.individual.script-manager-apple";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -341,6 +497,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		5E3323182874A48C00197659 /* Build configuration list for PBXNativeTarget "script manager appleTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5E3323192874A48C00197659 /* Debug */,
+				5E33231A2874A48C00197659 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		5E668FC62873CDA100D5EE23 /* Build configuration list for PBXProject "script manager apple" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

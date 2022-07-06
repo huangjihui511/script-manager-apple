@@ -8,10 +8,13 @@
 import SwiftUI
 
 @main
-struct script_manager_appleApp: App {
+struct ScriptManagerApp: App {
+    @StateObject private var modelData = ModelData()
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ScriptListView()
+                .environmentObject(ModelData())
         }
     }
 }

@@ -7,12 +7,10 @@
 
 import Foundation
 
-struct script: Hashable, Codable, Identifiable {
-    var id: String{
-        script
-    }
+struct Script: Hashable, Codable, Identifiable {
+    var id: String
     var script: String
-    var createdAt: Int64
-    var lastUsedAt: Int64
+    var createdAt: Double
+    var lastUsedAt: Double
     var isFavorite: Bool
 }
