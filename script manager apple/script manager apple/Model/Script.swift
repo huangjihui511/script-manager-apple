@@ -10,7 +10,7 @@ import Foundation
 struct Script: Hashable, Codable, Identifiable {
     var id: String
     var script: String
-    var createdAt: Double
+    var updateAt: Double
     var lastUsedAt: Double
     var isFavorite: Bool
 }

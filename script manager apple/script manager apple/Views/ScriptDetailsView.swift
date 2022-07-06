@@ -22,8 +22,8 @@ struct ScriptDetailsView: View {
                 ScriptDetailView(name: "id", value: $modelData.scripts[scriptIndex].id, isEdit: $isEdit, canEdit: false)
                 ScriptDetailView(name: "raw script text", value: $modelData.scripts[scriptIndex].script, isEdit: $isEdit, canEdit: true)
                 //                ScriptDetailView(name: "is favorite", value: .constant(String(script.isFavorite)), isEdit: $isEdit, canEdit: false)
-                ScriptDetailView(name: "created time", value: .constant( timeIntervalChangeToTimeStr(timeInterval: script.createdAt, dateFormat: nil)),isEdit: $isEdit, canEdit: false)
-                ScriptDetailView(name: "last used time", value: .constant( timeIntervalChangeToTimeStr(timeInterval: script.createdAt, dateFormat: nil)),isEdit: $isEdit, canEdit: false)
+                ScriptDetailView(name: "updated time", value: .constant( timeIntervalChangeToTimeStr(timeInterval: script.updateAt, dateFormat: nil)),isEdit: $isEdit, canEdit: false)
+                ScriptDetailView(name: "last used time", value: .constant( timeIntervalChangeToTimeStr(timeInterval: script.lastUsedAt, dateFormat: nil)),isEdit: $isEdit, canEdit: false)
             }
             .padding(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
             

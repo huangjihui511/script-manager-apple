@@ -12,12 +12,14 @@ struct ScriptRowView: View {
     
     var body: some View {
         HStack() {
-            if script.isFavorite {
-                Image(systemName: "star.fill")
-                    .foregroundColor(.yellow)
-            } else {
-                Image(systemName: "star")
-                    .foregroundColor(.yellow)
+            HStack {
+                if script.isFavorite {
+                    Image(systemName: "star.fill")
+                        .foregroundColor(.yellow)
+                } else {
+                    Image(systemName: "star")
+                        .foregroundColor(.yellow)
+                }
             }
             Text(script.script)
                 .lineLimit(10)
@@ -29,16 +31,16 @@ struct ScriptRowView: View {
         .frame(minWidth: 200, alignment: .leading)
     }
 }
-
-struct ScriptRowView_Previews: PreviewProvider {
-    static var scripts = ModelData().scripts
-    
-    static var previews: some View {
-        Group {
-            ScriptRowView(script: scripts[0])
-            ScriptRowView(script: scripts[1])
-            ScriptRowView(script: scripts[2])
-        }
-        .previewLayout(.fixed(width: /*@START_MENU_TOKEN@*/100.0/*@END_MENU_TOKEN@*/, height: /*@START_MENU_TOKEN@*/100.0/*@END_MENU_TOKEN@*/))
-    }
-}
+//
+//struct ScriptRowView_Previews: PreviewProvider {
+//    static var scripts = ModelData().scripts
+//
+//    static var previews: some View {
+//        Group {
+//            ScriptRowView(script: scripts[0], isFavorite: .constant(true))
+//            ScriptRowView(script: scripts[1], isFavorite: .constant(true))
+//            ScriptRowView(script: scripts[2], isFavorite: .constant(false))
+//        }
+//        .previewLayout(.fixed(width: /*@START_MENU_TOKEN@*/100.0/*@END_MENU_TOKEN@*/, height: /*@START_MENU_TOKEN@*/100.0/*@END_MENU_TOKEN@*/))
+//    }
+//}

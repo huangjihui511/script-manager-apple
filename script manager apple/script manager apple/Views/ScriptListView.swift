@@ -8,11 +8,9 @@
 import SwiftUI
 
 struct ScriptListView: View {
-    var scripts: [Script] {
-        modelData.scripts
-    }
+    
     var scriptsSelected: [Script]  {
-        scripts.filter { s in
+        modelData.scripts.filter { s in
             if showFavoritesOnly == false {
                 return true
             }
@@ -25,26 +23,30 @@ struct ScriptListView: View {
     @EnvironmentObject var modelData: ModelData
     
     
-    
     var body: some View {
         NavigationView {
             List(scriptsSelected) { script in
                 NavigationLink {
-                    VStack(alignment: .leading) {
-                        ScriptDetailsView(script: script, isEdit: $isEdit)
+                    HStack {
+                        VStack(alignment: .leading) {
+                            ScriptDetailsView(script: script, isEdit: $isEdit)
+                            Spacer()
+                        }
                         Spacer()
                     }
                     .onAppear {
                         writeToClipboard(string: script.script)
-                        copiedId = script.script
+                        let index = modelData.scripts.firstIndex(where: { $0.id == copiedId })
+                        if index != nil {
+                            modelData.scripts[index!].lastUsedAt = Date().timeIntervalSince1970
+                        }
+                        copiedId = script.id
                         isEdit = false
-                        debugPrint(copiedId)
                     }
                 } label  : {
                     VStack(alignment: .trailing) {
-                        
                         ScriptRowView(script: script)
-                        if script.script == copiedId {
+                        if script.id == copiedId {
                             Text("Copied")
                                 .font(.footnote)
                                 .padding(/*@START_MENU_TOKEN@*/.horizontal/*@END_MENU_TOKEN@*/)
@@ -64,32 +66,34 @@ struct ScriptListView: View {
                     } label: {
                         Label("filter", systemImage: "camera.filters")
                     }
-                    Spacer()
                     Button {
                         if copiedId.lengthOfBytes(using: .ascii) == 0 {
                             return
                         }
                         isEdit = !isEdit
                         let cachCopiedId = copiedId
+                        let index = ModelData().getScriptIndex(scriptId: copiedId)
+                        modelData.scripts[index!].updateAt = Date().timeIntervalSince1970
                         copiedId = ""
                         copiedId = cachCopiedId
+                        
                     } label: {
                         if !isEdit {
                             Label("edit", systemImage: "pencil.slash")
                         } else {
                             Label("edit", systemImage: "arrow.clockwise.icloud")
-
                         }
                     }
                     Button {
-                        debugPrint("button")
+                        modelData.scripts.append(Script(id: "0", script: "echo hello-world", updateAt: Date().timeIntervalSince1970, lastUsedAt: Date().timeIntervalSince1970, isFavorite: false))
+                        copiedId = "0"
                     } label: {
                         Label("add", systemImage: "plus")
                     }
+                    Spacer()
                 }
-                
             }
-            .frame(minWidth: 200, alignment: .leading)
+            .frame(minWidth: 250, alignment: .leading)
         }
         .navigationTitle("Details")
     }

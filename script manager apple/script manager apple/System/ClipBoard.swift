@@ -10,14 +10,12 @@ import AppKit
 
 // write to clipboard
 public func writeToClipboard(string: String) {
-    debugPrint("begin copy \(string)")
     let pb = NSPasteboard.general
     pb.clearContents()
     let result = pb.setString(string, forType:  NSPasteboard.PasteboardType.string)
     if result {
         sendClipSucceedNotification(string: string)
     }
-    debugPrint("end copy \(string)")
 }
 
 // read from clipboard
