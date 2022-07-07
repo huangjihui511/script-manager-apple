@@ -37,10 +37,21 @@ class script_manager_appleTests: XCTestCase {
         writeToClipboard(string:"s")
     }
     
-    func testNotification() throws {
-        sendNotification(string: "123")
-    }
+//    func testNotification() throws {
+//        sendNotification(string: "123")
+//    }
     
+//    func testDB() throws {
+//        let data = "hello world"
+//        let key = "key"
+//        NSUserDefaultsController().defaults.set(data, forKey:key)
+//        var newData = NSUserDefaultsController().defaults.object(forKey: key)
+//        debugPrint(newData)
+//        NSUserDefaultsController().defaults.set("not happy", forKey: key)
+//        newData = NSUserDefaultsController().defaults.object(forKey: key)
+//        debugPrint(newData)
+//
+//    }
 //    func testAddScript() throws {
 //        let s = ModelData().addScript(script: "aaa")
 //    }

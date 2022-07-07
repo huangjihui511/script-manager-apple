@@ -18,6 +18,10 @@ struct ScriptListView: View {
         modelData.scripts.firstIndex(where: { $0.id == selectedScript?.id })
     }
     var detailScript: Script? {
+        if filteredScripts.count <= index ?? 0 {
+            debugPrint("cant find detail")
+            return nil
+        }
         return filteredScripts[index ?? 0]
     }
     @State private var selectedScript: Script?
@@ -26,7 +30,9 @@ struct ScriptListView: View {
     
     
     var body: some View {
+        
         NavigationView {
+            
             List(selection: $selectedScript) {
                 ForEach(filteredScripts) { script in
                     NavigationLink {
@@ -39,20 +45,24 @@ struct ScriptListView: View {
                                     modelData.scripts[index!].lastUsedAt = Date().timeIntervalSince1970
                                 }
                                 writeToClipboard(string: script.script)
-                                
+                            }
+                            .onDisappear {
                                 
                             }
                         
                     } label  : {
-                        VStack(alignment: .trailing) {
-                            ScriptRowView(script: script)
-                            
-                        }
+                        ScriptRowView(script: script)
+                        
                         
                     }
                     .tag(script)
                     
+                    
                 }
+                
+                
+                
+                
             }
             .toolbar {
                 ToolbarItemGroup {
@@ -68,9 +78,13 @@ struct ScriptListView: View {
                     
                 }
             }
+            ScriptDetailView(script: selectedScript)
             
         }
-        .navigationTitle("Details Infos")
+        .navigationTitle("Informations")
+        
+        
+        
     }
     
 }

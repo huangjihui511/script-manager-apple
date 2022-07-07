@@ -18,7 +18,7 @@ struct ScriptDetailView: View {
     @EnvironmentObject var modelData: ModelData
     
     func afterEdit() {
-        modelData.scripts[modelData.getScriptIndex(scriptId: script!.id)!].updateAt = Date().timeIntervalSince1970
+        modelData.scripts[modelData.getScriptIndex(scriptId: script!.id)!].updatedAt = Date().timeIntervalSince1970
     }
     
     var body: some View {
@@ -56,20 +56,22 @@ struct ScriptDetailView: View {
                                 Text("About:")
                                     .font(.headline)
                                     .padding([.top, .bottom, .trailing])
-                                Text("Created Time (id)")
-                                    .bold()
+                                Text("ID")
                                 Text(script!.id)
                                     .font(.caption)
                                     .foregroundColor(.secondary)
                                     .padding(.vertical)
+                                Text("Created Time")
+                                Text(timeIntervalChangeToTimeStr(timeInterval: script!.createdAt, dateFormat: nil))
+                                    .font(.caption)
+                                    .foregroundColor(.secondary)
+                                    .padding(.vertical)
                                 Text("Updated Time")
-                                    .bold()
-                                Text(timeIntervalChangeToTimeStr(timeInterval: script!.updateAt, dateFormat: nil))
+                                Text(timeIntervalChangeToTimeStr(timeInterval: script!.updatedAt, dateFormat: nil))
                                     .font(.caption)
                                     .foregroundColor(.secondary)
                                     .padding(.vertical)
                                 Text("Used Time")
-                                    .bold()
                                 Text(timeIntervalChangeToTimeStr(timeInterval: script!.lastUsedAt, dateFormat: nil))
                                     .font(.caption)
                                     .foregroundColor(.secondary)
@@ -83,26 +85,28 @@ struct ScriptDetailView: View {
                 }
             }
             else {
-                VStack(alignment: .center) {
+                HStack {
                     Spacer()
-                    Text("Select Or Choose A Script!")
-                        .font(.largeTitle)
-                        .fontWeight(.heavy)
+                    VStack {
+                        Spacer()
+                        Text("Hello!")
+                            .font(.largeTitle)
+                        Spacer()
+                    }
                     Spacer()
                 }
+                
             }
         }
         .toolbar {
             ToolbarItemGroup{
                 Button {
                     _ = modelData.addScript(script: "[NEW] echo hello-world")
-                    debugPrint(modelData.scripts)
                 } label: {
                     Label("add", systemImage: "plus.square.on.square")
                 }
                 Button {
                     modelData.deleteScript(id: script!.id)
-                    debugPrint(modelData.scripts)
                 } label: {
                     Label("delete", systemImage: "trash")
                 }
@@ -117,7 +121,12 @@ struct ScriptDetailView_Previews: PreviewProvider {
     static var scripts = ModelData().scripts
     
     static var previews: some View {
-        ScriptDetailView(script: scripts[2])
-            .environmentObject(ModelData())
+        Group {
+            ScriptDetailView(script: scripts[2])
+                .environmentObject(ModelData())
+            ScriptDetailView(script: nil)
+                .environmentObject(ModelData())
+        }
+        
     }
 }
