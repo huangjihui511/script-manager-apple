@@ -78,6 +78,8 @@ struct ScriptDetailView: View {
                                     .foregroundColor(.secondary)
                                     .padding(.vertical)
                             }
+                            Divider()
+                            ReferenceView()
                         }
                         .padding(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
                         
@@ -88,13 +90,18 @@ struct ScriptDetailView: View {
             else {
                 HStack {
                     Spacer()
-                    VStack {
+                    VStack(alignment: .leading) {
                         Spacer()
                         Text("Hello!")
                             .font(.largeTitle)
+                        
+                        Divider()
+                        ReferenceView()
                         Spacer()
                     }
+                    .padding(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
                     Spacer()
+                        
                 }
                 
             }

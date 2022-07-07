@@ -38,7 +38,6 @@ struct ScriptListView: View {
                     NavigationLink {
                         
                         ScriptDetailView(script: detailScript)
-                            .frame(minWidth: 400, idealWidth: 400, alignment: .leading)
                             .onAppear {
                                 let index = modelData.getScriptIndex(scriptId: script.id)
                                 if index != nil {
@@ -46,9 +45,7 @@ struct ScriptListView: View {
                                 }
                                 writeToClipboard(string: script.script)
                             }
-                            .onDisappear {
-                                
-                            }
+                            .frame(idealWidth: 300, alignment: .leading)
                         
                     } label  : {
                         ScriptRowView(script: script)
