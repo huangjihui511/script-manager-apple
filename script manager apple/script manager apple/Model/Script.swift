@@ -8,7 +8,7 @@
 import Foundation
 
 struct Script: Hashable, Codable, Identifiable {
-    var id: String
+     var id: String
     var script: String
     var createdAt: Double
 
