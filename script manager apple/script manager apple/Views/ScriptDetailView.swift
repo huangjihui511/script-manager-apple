@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ScriptDetailView: View {
-    var script: Script?
+    @Binding var script: Script?
     var index: Int? {
         if script != nil {
             return modelData.getScriptIndex(scriptId: script!.id)
@@ -16,11 +16,6 @@ struct ScriptDetailView: View {
         return nil
     }
     @EnvironmentObject var modelData: ModelData
-    
-    func afterEdit() {
-        modelData.scripts[modelData.getScriptIndex(scriptId: script!.id)!].updatedAt = Date().timeIntervalSince1970
-        modelData.syncScripts()
-    }
     
     var body: some View {
         VStack {
@@ -34,9 +29,6 @@ struct ScriptDetailView: View {
                                     .padding(/*@START_MENU_TOKEN@*/[.top, .trailing]/*@END_MENU_TOKEN@*/)
                                 TextEditor(text: $modelData.scripts[index!].script)
                                     .font(.body)
-                                    .onSubmit {
-                                        afterEdit()
-                                    }
                                     .frame(height: 50, alignment: .leading)
                                     .padding(.vertical)
                                 
@@ -46,9 +38,6 @@ struct ScriptDetailView: View {
                                     .padding([.top, .trailing])
                                 Toggle("Is Favorite", isOn: $modelData.scripts[modelData.getScriptIndex(scriptId: script!.id)!].isFavorite)
                                     .toggleStyle(.switch)
-                                    .onSubmit {
-                                        afterEdit()
-                                    }
                                     .padding([.top, .bottom, .trailing])
                                 
                                 Divider()
@@ -67,11 +56,11 @@ struct ScriptDetailView: View {
                                     .font(.caption)
                                     .foregroundColor(.secondary)
                                     .padding(.vertical)
-                                Text("Updated Time")
-                                Text(timeIntervalChangeToTimeStr(timeInterval: script!.updatedAt, dateFormat: nil))
-                                    .font(.caption)
-                                    .foregroundColor(.secondary)
-                                    .padding(.vertical)
+//                                Text("Updated Time")
+//                                Text(timeIntervalChangeToTimeStr(timeInterval: script!.updatedAt, dateFormat: nil))
+//                                    .font(.caption)
+//                                    .foregroundColor(.secondary)
+//                                    .padding(.vertical)
                                 Text("Used Time")
                                 Text(timeIntervalChangeToTimeStr(timeInterval: script!.lastUsedAt, dateFormat: nil))
                                     .font(.caption)
@@ -124,17 +113,17 @@ struct ScriptDetailView: View {
         }
     }
 }
-
-struct ScriptDetailView_Previews: PreviewProvider {
-    static var scripts = ModelData().scripts
-    
-    static var previews: some View {
-        Group {
-            ScriptDetailView(script: scripts[2])
-                .environmentObject(ModelData())
-            ScriptDetailView(script: nil)
-                .environmentObject(ModelData())
-        }
-        
-    }
-}
+//
+//struct ScriptDetailView_Previews: PreviewProvider {
+//    static var scripts = ModelData().scripts
+//    
+//    static var previews: some View {
+//        Group {
+//            ScriptDetailView(script: scripts[2])
+//                .environmentObject(ModelData())
+//            ScriptDetailView(script: nil)
+//                .environmentObject(ModelData())
+//        }
+//        
+//    }
+//}
