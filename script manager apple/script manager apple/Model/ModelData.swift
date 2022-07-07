@@ -64,7 +64,7 @@ func loadScriptsDB() -> [Script] {
             }
         }
     }
-    return [Script]()
+    return result
 }
 
 func saveScriptsDB(scripts: [Script]) {
@@ -78,5 +78,4 @@ func saveScriptsDB(scripts: [Script]) {
         }
         
     }, forKey: scriptsKey)
-    debugPrint("save")
 }
