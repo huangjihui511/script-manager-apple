@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import AppKit
 
 @main
 struct ScriptManagerApp: App {
@@ -14,7 +15,16 @@ struct ScriptManagerApp: App {
     var body: some Scene {
         WindowGroup {
             ScriptListView()
-                .environmentObject(ModelData())
+                .environmentObject(modelData)
+                .onReceive(NotificationCenter.default.publisher(for: NSApplication.willTerminateNotification), perform: {
+                    _ in
+                    modelData.syncScripts()
+                })
         }
+        
+        //        .onReceive(NotificationCenter.default.publisher(for: UIApplication.didBecomeActiveNotification)) { _ in
+        //            print("active")
+        //        }
     }
+    
 }

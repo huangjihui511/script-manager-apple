@@ -19,6 +19,7 @@ struct ScriptDetailView: View {
     
     func afterEdit() {
         modelData.scripts[modelData.getScriptIndex(scriptId: script!.id)!].updatedAt = Date().timeIntervalSince1970
+        modelData.syncScripts()
     }
     
     var body: some View {
