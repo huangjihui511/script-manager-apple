@@ -17,7 +17,8 @@
 		5E668FE52873D60F00D5EE23 /* ScriptListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E668FE42873D60F00D5EE23 /* ScriptListView.swift */; };
 		5E668FE72873DE6600D5EE23 /* ScriptRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E668FE62873DE6600D5EE23 /* ScriptRowView.swift */; };
 		5EC433A228774AD900A259F0 /* ReferenceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC433A128774AD800A259F0 /* ReferenceView.swift */; };
-		5EC433A42877500D00A259F0 /* ScriptFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC433A32877500D00A259F0 /* ScriptFilter.swift */; };
+		5EDB004228783E3A00E11146 /* ScriptAddView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EDB004128783E3A00E11146 /* ScriptAddView.swift */; };
+		5EDB004328783E3A00E11146 /* ScriptAddView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EDB004128783E3A00E11146 /* ScriptAddView.swift */; };
 		5EF71E4128741A6B00FBA5C1 /* ScriptDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EF71E4028741A6B00FBA5C1 /* ScriptDetailView.swift */; };
 		5EF71E4328742A0000FBA5C1 /* TransferUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EF71E4228742A0000FBA5C1 /* TransferUtils.swift */; };
 /* End PBXBuildFile section */
@@ -46,7 +47,7 @@
 		5E668FE42873D60F00D5EE23 /* ScriptListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScriptListView.swift; sourceTree = "<group>"; };
 		5E668FE62873DE6600D5EE23 /* ScriptRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScriptRowView.swift; sourceTree = "<group>"; };
 		5EC433A128774AD800A259F0 /* ReferenceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReferenceView.swift; sourceTree = "<group>"; };
-		5EC433A32877500D00A259F0 /* ScriptFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScriptFilter.swift; sourceTree = "<group>"; };
+		5EDB004128783E3A00E11146 /* ScriptAddView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScriptAddView.swift; sourceTree = "<group>"; };
 		5EF71E4028741A6B00FBA5C1 /* ScriptDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScriptDetailView.swift; sourceTree = "<group>"; };
 		5EF71E4228742A0000FBA5C1 /* TransferUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferUtils.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -122,7 +123,6 @@
 				5E332325287548DE00197659 /* ClipBoard.swift */,
 				5E668FDE2873CEC300D5EE23 /* Script.swift */,
 				5E668FE02873CED800D5EE23 /* ModelData.swift */,
-				5EC433A32877500D00A259F0 /* ScriptFilter.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -135,6 +135,7 @@
 				5EF71E4028741A6B00FBA5C1 /* ScriptDetailView.swift */,
 				5EF71E4228742A0000FBA5C1 /* TransferUtils.swift */,
 				5EC433A128774AD800A259F0 /* ReferenceView.swift */,
+				5EDB004128783E3A00E11146 /* ScriptAddView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -240,6 +241,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5E3323152874A48C00197659 /* script_manager_appleTests.swift in Sources */,
+				5EDB004328783E3A00E11146 /* ScriptAddView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -249,12 +251,12 @@
 			files = (
 				5EF71E4128741A6B00FBA5C1 /* ScriptDetailView.swift in Sources */,
 				5EC433A228774AD900A259F0 /* ReferenceView.swift in Sources */,
-				5EC433A42877500D00A259F0 /* ScriptFilter.swift in Sources */,
 				5E668FE12873CED800D5EE23 /* ModelData.swift in Sources */,
 				5E332328287548DE00197659 /* ClipBoard.swift in Sources */,
 				5EF71E4328742A0000FBA5C1 /* TransferUtils.swift in Sources */,
 				5E668FE72873DE6600D5EE23 /* ScriptRowView.swift in Sources */,
 				5E668FE52873D60F00D5EE23 /* ScriptListView.swift in Sources */,
+				5EDB004228783E3A00E11146 /* ScriptAddView.swift in Sources */,
 				5E668FDF2873CEC300D5EE23 /* Script.swift in Sources */,
 				5E668FCF2873CDA100D5EE23 /* ScriptManagerApp.swift in Sources */,
 			);

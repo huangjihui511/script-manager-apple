@@ -20,7 +20,7 @@ final class ModelData: ObservableObject {
     func addScript(script:String) -> Script {
         let id =  UUID().uuidString
         let createdAt = Date().timeIntervalSince1970
-        let newScript = Script(id: id, script:script, createdAt: createdAt, updatedAt: createdAt, lastUsedAt: Date().timeIntervalSince1970, isFavorite: false)
+        let newScript = Script(id: id, script:script, createdAt: createdAt,usageCount: 0, isFavorite: false, isDeleted: false)
         
         scripts.append(newScript)
         ModelData.saveScriptsDB(scripts: scripts)
@@ -28,10 +28,10 @@ final class ModelData: ObservableObject {
         return newScript
     }
     
-    func deleteScript(id: String) {
+    func deleteScript(id: String, isDeleted: Bool) {
         let index  = getScriptIndex(scriptId: id)
         if index != nil {
-            scripts.remove(at: index!)
+            scripts[index!].isDeleted = isDeleted
             self.objectWillChange.send()
         }
         syncScripts()
@@ -54,7 +54,7 @@ final class ModelData: ObservableObject {
                     let s = try decoder.decode(Script.self, from: d)
                     result.append(s)
                 } catch {
-                    fatalError("error: \(error)")
+                    continue
                 }
             }
         }

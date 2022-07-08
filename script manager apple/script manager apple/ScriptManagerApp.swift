@@ -21,10 +21,6 @@ struct ScriptManagerApp: App {
                     modelData.syncScripts()
                 })
         }
-        
-        //        .onReceive(NotificationCenter.default.publisher(for: UIApplication.didBecomeActiveNotification)) { _ in
-        //            print("active")
-        //        }
     }
     
 }

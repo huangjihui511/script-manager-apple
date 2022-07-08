@@ -14,14 +14,25 @@ struct ScriptRowView: View {
         HStack() {
             Text(script.script)
             Spacer()
-            if script.isFavorite {
-                Image(systemName: "star.fill")
-                    .foregroundColor(.yellow)
-                    .imageScale(.medium)
-            } else {
-                Image(systemName: "star")
-                    .foregroundColor(.yellow)
-                    .imageScale(.medium)
+            if !script.isDeleted {
+                if script.isFavorite {
+                    Image(systemName: "star.fill")
+                        .foregroundColor(.yellow)
+                        .imageScale(.medium)
+                } else {
+                    Image(systemName: "star")
+                        .foregroundColor(.yellow)
+                        .imageScale(.medium)
+                }
+            }
+            else {
+                if script.isFavorite {
+                    Image(systemName: "star.fill")
+                        .imageScale(.medium)
+                } else {
+                    Image(systemName: "star")
+                        .imageScale(.medium)
+                }
             }
         }
         .frame(height: 30, alignment: .leading)

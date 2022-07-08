@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ScriptDetailView: View {
-    @Binding var script: Script?
+    var script: Script?
     var index: Int? {
         if script != nil {
             return modelData.getScriptIndex(scriptId: script!.id)
@@ -16,6 +16,8 @@ struct ScriptDetailView: View {
         return nil
     }
     @EnvironmentObject var modelData: ModelData
+    @State var showAddPop: Bool = false
+    @State var inputContent : String = "new"
     
     var body: some View {
         VStack {
@@ -36,7 +38,7 @@ struct ScriptDetailView: View {
                                 Text("Settings:")
                                     .font(.headline)
                                     .padding([.top, .trailing])
-                                Toggle("Is Favorite", isOn: $modelData.scripts[modelData.getScriptIndex(scriptId: script!.id)!].isFavorite)
+                                Toggle("Is Favorite", isOn: $modelData.scripts[index!].isFavorite)
                                     .toggleStyle(.switch)
                                     .padding([.top, .bottom, .trailing])
                                 
@@ -61,8 +63,8 @@ struct ScriptDetailView: View {
 //                                    .font(.caption)
 //                                    .foregroundColor(.secondary)
 //                                    .padding(.vertical)
-                                Text("Used Time")
-                                Text(timeIntervalChangeToTimeStr(timeInterval: script!.lastUsedAt, dateFormat: nil))
+                                Text("Usage Count")
+                                Text("\(script!.usageCount)")
                                     .font(.caption)
                                     .foregroundColor(.secondary)
                                     .padding(.vertical)
@@ -98,15 +100,30 @@ struct ScriptDetailView: View {
         .toolbar {
             ToolbarItemGroup{
                 Button {
-                    _ = modelData.addScript(script: "[NEW] echo hello-world")
+                    showAddPop = true
                 } label: {
                     Label("add", systemImage: "plus.square.on.square")
                 }
-                Button {
-                    modelData.deleteScript(id: script!.id)
-                } label: {
-                    Label("delete", systemImage: "trash")
+                .popover(isPresented: $showAddPop, arrowEdge: .bottom) {
+                    ScriptAddView(inputContent: $inputContent)
                 }
+                if script != nil {
+                    if !script!.isDeleted {
+                        Button {
+                            modelData.deleteScript(id: script!.id, isDeleted: true)
+                        } label: {
+                            Label("delete", systemImage: "trash")
+                        }
+                    }
+                    else {
+                        Button {
+                            modelData.deleteScript(id: script!.id, isDeleted: false)
+                        } label: {
+                            Label("back", systemImage: "arrow.uturn.down")
+                        }
+                    }
+                }
+                
             }
             
             
