@@ -18,7 +18,8 @@ struct ScriptDetailView: View {
     @EnvironmentObject var modelData: ModelData
     @State var showAddPop: Bool = false
     @State var inputContent : String = "new"
-    
+    @State var showDeleteAlert : Bool = false
+
     var body: some View {
         VStack {
             if index != nil {
@@ -35,12 +36,12 @@ struct ScriptDetailView: View {
                                     .padding(.vertical)
                                 
                                 Divider()
-                                Text("Settings:")
-                                    .font(.headline)
-                                    .padding([.top, .trailing])
-                                Toggle("Is Favorite", isOn: $modelData.scripts[index!].isFavorite)
-                                    .toggleStyle(.switch)
-                                    .padding([.top, .bottom, .trailing])
+//                                Text("Settings:")
+//                                    .font(.headline)
+//                                    .padding([.top, .trailing])
+//                                Toggle("Is Favorite", isOn: $modelData.scripts[index!].isFavorite)
+//                                    .toggleStyle(.switch)
+//                                    .padding([.top, .bottom, .trailing])
                                 
                                 Divider()
                             }
@@ -63,11 +64,11 @@ struct ScriptDetailView: View {
 //                                    .font(.caption)
 //                                    .foregroundColor(.secondary)
 //                                    .padding(.vertical)
-                                Text("Usage Count")
-                                Text("\(script!.usageCount)")
-                                    .font(.caption)
-                                    .foregroundColor(.secondary)
-                                    .padding(.vertical)
+//                                Text("Usage Count")
+//                                Text("\(script!.usageCount)")
+//                                    .font(.caption)
+//                                    .foregroundColor(.secondary)
+//                                    .padding(.vertical)
                             }
                             Divider()
                             ReferenceView()
@@ -109,10 +110,30 @@ struct ScriptDetailView: View {
                 }
                 if script != nil {
                     if !script!.isDeleted {
+                        Toggle(isOn: $modelData.scripts[index!].isFavorite) {
+                            Label("favorite", systemImage: "star")
+                        }
+                        .toggleStyle(.button)
                         Button {
-                            modelData.deleteScript(id: script!.id, isDeleted: true)
+                            showDeleteAlert = true
                         } label: {
                             Label("delete", systemImage: "trash")
+                        }
+                        .alert(isPresented: $showDeleteAlert) {
+                            Alert(
+                                title: Text("Delete Script"),
+                                message: Text(modelData.scripts[index!].script),
+                                primaryButton: .default(
+                                    Text("Confirm"),
+                                    action: {
+                                        modelData.deleteScript(id: script!.id, isDeleted: true)
+                                    }
+                                ),
+                                secondaryButton: .destructive(
+                                    Text("Cancel"),
+                                    action: {}
+                                )
+                            )
                         }
                     }
                     else {

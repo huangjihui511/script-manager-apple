@@ -23,7 +23,7 @@ struct ScriptAddView: View {
                 _ = modelData.addScript(script: inputContent)
                 inputContent = ""
             } label: {
-                Label("Submit", systemImage: "plus.square.on.square")
+                Label("Submit", systemImage: "checkmark.circle")
             }
             .padding(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
         }
