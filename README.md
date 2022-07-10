@@ -1,29 +1,17 @@
 # Script Manager For Apple
+## What is it?
 
-## What
+As a developer I usually have so many commands to use every day, it is essential for me to manage them clearly and copy them quickly.
 
-An application to manage your chaos shell commands
+## How to download?
 
-### Target
+xxx
+## How to use?
 
-1. Fluent
+Hope you can use it without tutorial~
+## Technology & UI Design
 
-2. Editable
+Native Mac OS Application completely based on the Swift UI in the Apple Design Language.
 
-3. Clever
+![ui.png](https://s2.loli.net/2022/07/10/2pCmAUXq6ohdsiQ.png)
 
-## Design
-
-1. DataModel
-
-    Store the persist data
-
-2. ViewModel
-
-    UI
-
-3. SystemModel
-
-    Clipboard
-
-    Shortcut
