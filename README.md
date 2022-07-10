@@ -5,7 +5,8 @@ As a developer I usually have so many commands to use every day, it is essential
 
 ## How to download?
 
-xxx
+https://github.com/huangjihui511/script-manager-apple/tree/master/bin
+
 ## How to use?
 
 Hope you can use it without tutorial~
