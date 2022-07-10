@@ -5,8 +5,7 @@ As a developer I usually have so many commands to use every day, it is essential
 
 ## How to download?
 
-https://github.com/huangjihui511/script-manager-apple/blob/master/bin/Script_Manager.dmg
-
+xxx
 ## How to use?
 
 Hope you can use it without tutorial~
