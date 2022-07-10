@@ -13,8 +13,27 @@ final class ModelData: ObservableObject {
     
     @Published var scripts:[Script]
     
+    static var instance : ModelData? = nil
+    
+    var scriptGroups: [String: [Script]] {
+        Dictionary(
+            grouping: scripts.filter({ s in
+                !s.isDeleted
+            }),
+            by: { getScriptGroupName(script: $0) }
+        )
+    }
+    
+    func getScriptGroupName(script: Script) -> String {
+        if script.script == "" {
+            return "default"
+        }
+        return String(script.script.split(separator: " ")[0])
+    }
+    
     init() {
         scripts = ModelData.loadScriptsDB()
+        ModelData.instance = self
     }
     
     func addScript(script:String) -> Script {

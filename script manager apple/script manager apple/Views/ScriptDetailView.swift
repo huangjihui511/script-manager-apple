@@ -19,7 +19,7 @@ struct ScriptDetailView: View {
     @State var showAddPop: Bool = false
     @State var inputContent : String = "new"
     @State var showDeleteAlert : Bool = false
-
+    
     var body: some View {
         VStack {
             if index != nil {
@@ -34,15 +34,7 @@ struct ScriptDetailView: View {
                                     .font(.body)
                                     .frame(height: 50, alignment: .leading)
                                     .padding(.vertical)
-                                
-                                Divider()
-//                                Text("Settings:")
-//                                    .font(.headline)
-//                                    .padding([.top, .trailing])
-//                                Toggle("Is Favorite", isOn: $modelData.scripts[index!].isFavorite)
-//                                    .toggleStyle(.switch)
-//                                    .padding([.top, .bottom, .trailing])
-                                
+
                                 Divider()
                             }
                             VStack(alignment: .leading){
@@ -59,16 +51,6 @@ struct ScriptDetailView: View {
                                     .font(.caption)
                                     .foregroundColor(.secondary)
                                     .padding(.vertical)
-//                                Text("Updated Time")
-//                                Text(timeIntervalChangeToTimeStr(timeInterval: script!.updatedAt, dateFormat: nil))
-//                                    .font(.caption)
-//                                    .foregroundColor(.secondary)
-//                                    .padding(.vertical)
-//                                Text("Usage Count")
-//                                Text("\(script!.usageCount)")
-//                                    .font(.caption)
-//                                    .foregroundColor(.secondary)
-//                                    .padding(.vertical)
                             }
                             Divider()
                             ReferenceView()
@@ -93,7 +75,7 @@ struct ScriptDetailView: View {
                     }
                     .padding(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
                     Spacer()
-                        
+                    
                 }
                 
             }

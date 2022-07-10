@@ -1,66 +1,17 @@
 # Script Manager For Apple
+## What is it?
 
-## What
+As a developer I usually have so many commands to use every day, it is essential for me to manage them clearly and copy them quickly.
 
-An application to manage your chaos shell commands
+## How to download?
 
-### Target
+xxx
+## How to use?
 
-1. Fluent
+Hope you can use it without tutorial~
+## Technology & UI Design
 
-2. Editable
+Native Mac OS Application completely based on the Swift UI in the Apple Design Language.
 
-3. Clever
-## Technology
+![ui.png](https://s2.loli.net/2022/07/10/2pCmAUXq6ohdsiQ.png)
 
-Native Mac OS Application
-## Design
-### DataModel
-Store the persist data
-#### Fields
-1. script
-
-2. group_name
-
-3. is_favorite
-
-4. usage_count
-
-5. created_at
-
-6. last_used_at
-
-7. scene
-
-#### Operation
-1. add
-
-2. update
-
-3. delete
-
-### ViewModel
-
-The user interface
-
-#### Page
-
-1. Grouping
-
-2. Favorite
-
-3. Recent
-#### Filter
-
-1. is favorite
-
-2. in 10 days
-
-### SystemModel
-
-#### Clipboard
-1. write to clipboard
-
-2. listen at clipboard
-
-#### Notification
